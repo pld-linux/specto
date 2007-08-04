@@ -46,12 +46,13 @@ zdarzeniach zamiast szukać ich samemu.
 %setup -q
 
 %build
-python setup.py build
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install \
+%{__python} setup.py install \
+	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
 %find_lang %{name}
