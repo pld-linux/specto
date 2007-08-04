@@ -1,5 +1,6 @@
 # TODO:
 # - Add desktop file
+# - program doesn't work, something wrong with gnome icon
 Summary:	Event notification application
 Summary(pl.UTF-8):	Notyfikacja zdarzeń
 Name:		specto
