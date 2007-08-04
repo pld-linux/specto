@@ -1,6 +1,6 @@
 #
 Summary:	Event notification application
-Summary(pl.UTF-8):	-
+Summary(pl.UTF-8):	Notyfikacja zdarzeń
 Name:		specto
 Version:	0.2.2
 Release:	1
@@ -9,7 +9,15 @@ Group:		X11/Applications
 Source0:	http://specto.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	2212c1a6e2e72eb2f13c632745330c9f
 URL:		http://code.google.com/p/specto/
-BuildRequires:	python
+BuildRequires:	python-dbus
+BuildRequires:	python-devel >= 2.10
+BuildRequires:	python-pynotify
+Requires:	python
+Requires:	python-gnome
+Requires:	python-gnome-extras
+Requires:	python-gnome-gconf
+Requires:	python-pygtk-glade
+Requires:	python-pygtk-gtk
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,10 +30,19 @@ etc), and notify you when there is activity (otherwise, Specto will
 just stay out of the way). This changes the way you work, because you
 can be informed of events instead of having to look out for them.
 
+%description -l pl.UTF-8
+Specto jest desktopową aplikacją, która będzie obserwować
+konfigurowalne zdarzenia (takie jak uaktualnienia stron www, poczty
+elektronicznej, pliku, zmiany katalogu, procesów systemowych itp.) i
+przekazywać zawiadomienia. Dla przykładu, Specto może w
+poszukiwaniu uaktualnień obserwować stronę www (lub ... albo
+obrazek itp.) i informować użytkownika gdy zmiany nastąpiły (w
+przeciwnym razie Specto będzie pracować dalej). To wszystko zmienia
+sposób pracy, ponieważ użytkownik może być informowany o
+zdarzeniach zamiast szukać ich samemu.
+
 %prep
 %setup -q
-#%setup -q -c -T
-#%setup -q -n %{name}
 
 %build
 python setup.py build
