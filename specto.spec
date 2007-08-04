@@ -1,10 +1,11 @@
-#
+# TODO:
+# - Add desktop file
 Summary:	Event notification application
 Summary(pl.UTF-8):	Notyfikacja zdarzeń
 Name:		specto
 Version:	0.2.2
 Release:	1
-License:	GPLv2
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://specto.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	2212c1a6e2e72eb2f13c632745330c9f
