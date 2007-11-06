@@ -1,0 +1,16 @@
+--- specto-0.2.2/specto.desktop~	2007-06-18 04:03:33.000000000 +0200
++++ specto-0.2.2/specto.desktop	2007-11-06 01:27:21.000000000 +0100
+@@ -1,10 +1,13 @@
+ [Desktop Entry]
++Encoding=UTF-8
+ Name=Specto
+ Comment=Be notified of everything
+ Comment[fr]=Soyez alerte
++Comment[pl]=Powiadamianie o zdarzeniach
+ Categories=GNOME;Utility;
+ Exec=specto
+ Icon=specto
+ StartupNotify=true
+ Terminal=false
+ Type=Application
++# vi: encoding=utf-8
