@@ -1,6 +1,6 @@
 # TODO:
-# - Add desktop file
 # - program doesn't work, something wrong with gnome icon
+
 Summary:	Event notification application
 Summary(pl.UTF-8):	Aplikacja powiadamiająca o zdarzeniach
 Name:		specto
@@ -10,6 +10,7 @@ License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://specto.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	2212c1a6e2e72eb2f13c632745330c9f
+Patch0:		%{name}-desktop.patch
 URL:		http://code.google.com/p/specto/
 BuildRequires:	python-dbus
 BuildRequires:	python-devel >= 1:2.5
@@ -45,6 +46,7 @@ sprawdzać je samemu.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__python} setup.py build
