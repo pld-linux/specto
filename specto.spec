@@ -1,15 +1,17 @@
+#
 # TODO:
-# - program doesn't work, something wrong with gnome icon
-
+# - fix "DeprecationWarning: the sets module is deprecate"
+# - make it works properly
+#
 Summary:	Event notification application
 Summary(pl.UTF-8):	Aplikacja powiadamiająca o zdarzeniach
 Name:		specto
-Version:	0.2.2
-Release:	1
+Version:	0.3
+Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://specto.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	2212c1a6e2e72eb2f13c632745330c9f
+# Source0-md5:	39a83b97d842d76b55d88145cca1024a
 Patch0:		%{name}-desktop.patch
 URL:		http://code.google.com/p/specto/
 BuildRequires:	python-dbus
@@ -39,13 +41,13 @@ zdarzenia (takie jak uaktualnienia stron WWW, wiadomości poczty
 elektronicznej, zmiany plików i katalogów, procesy systemowe itp.) i
 przekazuje zawiadomienia. Na przykład, Specto może w poszukiwaniu
 uaktualnień obserwować stronę WWW (lub łączony feed albo obrazek)
-i informować użytkownika o zauważeniu aktywności (w przeciwnym razie
-Specto będzie pracować dalej). To wszystko zmienia sposób pracy,
-ponieważ użytkownik może być informowany o zdarzeniach zamiast
-sprawdzać je samemu.
+i informować użytkownika o zauważeniu aktywności (w przeciwnym
+razie Specto będzie pracować dalej). To wszystko zmienia sposób
+pracy, ponieważ użytkownik może być informowany o zdarzeniach
+zamiast sprawdzać je samemu.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}
 %patch0 -p1
 
 %build
@@ -60,16 +62,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %find_lang %{name}
 
+%py_postclean
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc data/doc/AUTHORS data/doc/ChangeLog data/doc/HACKING data/doc/VERSION
+%doc data/doc/{AUTHORS,ChangeLog}
 %attr(755,root,root) %{_bindir}/specto
 %{_datadir}/specto
 %dir %{py_sitescriptdir}/spectlib
 %{py_sitescriptdir}/spectlib/*.py[co]
+%dir %{py_sitescriptdir}/spectlib/plugins
+%{py_sitescriptdir}/spectlib/plugins/*.py[co]
+%dir %{py_sitescriptdir}/spectlib/tools
+%{py_sitescriptdir}/spectlib/tools/*.py[co]
 %{py_sitescriptdir}/specto-*.egg-info
 %{_desktopdir}/specto.desktop
 %{_iconsdir}/hicolor/scalable/apps/*.svg
