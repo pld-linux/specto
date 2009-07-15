@@ -6,18 +6,19 @@
 Summary:	Event notification application
 Summary(pl.UTF-8):	Aplikacja powiadamiająca o zdarzeniach
 Name:		specto
-Version:	0.3
+Version:	0.3.1
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://specto.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	39a83b97d842d76b55d88145cca1024a
+# Source0-md5:	1a5ddb1dd7b4445886e07faa2cb365ed
 Patch0:		%{name}-desktop.patch
 URL:		http://code.google.com/p/specto/
 BuildRequires:	python-dbus
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-pynotify
 Requires:	python
+Requires:	python-Numeric
 Requires:	python-gnome
 Requires:	python-gnome-extras
 Requires:	python-gnome-gconf
@@ -47,7 +48,7 @@ pracy, ponieważ użytkownik może być informowany o zdarzeniach
 zamiast sprawdzać je samemu.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
 
 %build
